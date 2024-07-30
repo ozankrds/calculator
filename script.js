@@ -32,12 +32,11 @@ for (let i = 0; i < buttonArr.length; i++) {
                 break;
             case "=":
                 calculation = eval(calculation);
-                screen.innerHTML = calculation;
+                screen.innerHTML = Math.floor(calculation * 1000) / 1000;
                 break;
             default:
                 (screen.innerHTML === "0") ? screen.innerHTML = buttonArr[i].innerHTML : screen.innerHTML += buttonArr[i].innerHTML;
                 calculation += buttonArr[i].innerHTML;
-                console.log(calculation);
                 break;
         }
     })
