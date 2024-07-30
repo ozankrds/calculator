@@ -32,7 +32,14 @@ for (let i = 0; i < buttonArr.length; i++) {
                 break;
             case "=":
                 calculation = eval(calculation);
-                screen.innerHTML = Math.floor(calculation * 1000) / 1000;
+                try {
+                    calculation = eval(calculation);
+                    screen.innerHTML = Math.floor(calculation * 100000000000) / 100000000000;
+                } catch(error) {
+                    alert("Syntax Error");
+                    screen.innerHTML = "0";
+                    calculation = "";
+                }
                 break;
             default:
                 (screen.innerHTML === "0") ? screen.innerHTML = buttonArr[i].innerHTML : screen.innerHTML += buttonArr[i].innerHTML;
