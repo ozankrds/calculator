@@ -19,6 +19,11 @@ for (let i = 0; i < buttonArr.length; i++) {
                     : (screen.innerHTML.charAt(screen.innerHTML.length - 1) === " ") 
                     ? screen.innerHTML =  screen.innerHTML.substring(0, screen.innerHTML.length - 2) 
                     : screen.innerHTML = screen.innerHTML.substring(0, screen.innerHTML.length - 1);
+
+                // Prevents a possible bug
+                if(screen.innerHTML === "")
+                    screen.innerHTML = "0";
+                
                 calculation = calculation.substring(0, calculation.length - 1);
                 break;
             case "×":
