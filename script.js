@@ -11,24 +11,31 @@ for (let i = 0; i < buttonArr.length; i++) {
                 calculation = "";
                 break;
             case "←":
-                (screen.innerHTML.length === 1) ? screen.innerHTML = "0" : screen.innerHTML = screen.innerHTML.substring(0, screen.innerHTML.length - 1);
+                 // What this pretty long line of code does is that it deletes the last character of the screen.
+                // If its length is one like 7, it becomes 0 when clicked
+                // Also if the last index of the screen is space, it deletes the space and the character.
+                (screen.innerHTML.length === 1) 
+                    ? screen.innerHTML = "0" 
+                    : (screen.innerHTML.charAt(screen.innerHTML.length - 1) === " ") 
+                    ? screen.innerHTML =  screen.innerHTML.substring(0, screen.innerHTML.length - 2) 
+                    : screen.innerHTML = screen.innerHTML.substring(0, screen.innerHTML.length - 1);
                 calculation = calculation.substring(0, calculation.length - 1);
                 break;
             case "×":
                 calculation += "*";
-                (screen.innerHTML === "0") ? screen.innerHTML === "0" : screen.innerHTML += "×";
+                (screen.innerHTML === "0") ? screen.innerHTML === "0" : screen.innerHTML += " × ";
                 break;
             case "÷":
                 calculation += "/";
-                (screen.innerHTML === "0") ? screen.innerHTML === "0" : screen.innerHTML += "÷";
+                (screen.innerHTML === "0") ? screen.innerHTML === "0" : screen.innerHTML += " ÷ ";
                 break;
             case "+":
                 calculation += "+";
-                (screen.innerHTML === "0") ? screen.innerHTML === "0" : screen.innerHTML += "+";
+                (screen.innerHTML === "0") ? screen.innerHTML === "0" : screen.innerHTML += " + ";
                 break;
             case "−":
                 calculation += "-";
-                (screen.innerHTML === "0") ? screen.innerHTML === "0" : screen.innerHTML += "−";
+                (screen.innerHTML === "0") ? screen.innerHTML === "0" : screen.innerHTML += " − ";
                 break;
             case "=":
                 calculation = eval(calculation);
