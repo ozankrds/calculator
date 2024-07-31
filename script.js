@@ -34,7 +34,7 @@ for (let i = 0; i < buttonArr.length; i++) {
                 calculation = eval(calculation);
                 try {
                     calculation = eval(calculation);
-                    screen.innerHTML = Math.floor(calculation * 100000000000) / 100000000000;
+                    screen.innerHTML = Math.round(calculation * 100000000000) / 100000000000;
                 } catch(error) {
                     alert("Syntax Error");
                     screen.innerHTML = "0";
